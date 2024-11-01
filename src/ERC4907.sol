@@ -17,6 +17,10 @@ contract ERC4907 is ERC721, IERC4907 {
         string memory symbol_
     ) ERC721(name_, symbol_) {}
 
+    function mint(address to, uint256 tokenId) public {
+        super._safeMint(to, tokenId);
+    }
+
     /// @notice set the user and expires of a NFT
     /// @dev The zero address indicates there is no user
     /// Throws if `tokenId` is not valid NFT
